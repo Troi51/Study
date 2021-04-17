@@ -10,7 +10,7 @@ int main(void)
 	scanf_s("%i", &a);
 	printf("¬ведите количество столбцов массива:");
 	scanf_s("%i", &b);
-	
+
 
 
 }

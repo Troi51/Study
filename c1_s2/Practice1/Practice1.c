@@ -18,13 +18,13 @@ int main(void)
     scanf_s("%d", &i_a);
     printf("Введите количество столбцов массива:");
     scanf_s("%d", &i_b);
-    srand(time(NULL));
+    srand(time(0));
 
     for (int i_i = 0; i_i < i_b; i_i++)
     {
         for (int i_j = 0; i_j < i_a; i_j++)
         {
-             m_c[i_i][i_j] = -5 +rand() % 10;
+             m_c[i_i][i_j] = rand() % 7-1;
         }
     }
 
@@ -32,10 +32,11 @@ int main(void)
     {
         for (int i_j = 0; i_j < i_a; i_j++)
         {
-            m_d[i_i][i_j] = -5 + rand() % 10;
+            m_d[i_i][i_j] = rand() % 7-1;
         }
     }
 
+    printf("\nМатрица А:");
     for (int i_i = 0; i_i < i_b; i_i++)
     {
         printf("\n");
@@ -45,7 +46,7 @@ int main(void)
         }
     }
 
-    printf("\n");
+    printf("\nМатрица B:");
 
     for (int i_i = 0; i_i < i_b; i_i++)
     {

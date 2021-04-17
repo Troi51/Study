@@ -1,15 +1,15 @@
-//Лабораторная работа №1
+п»ї//Р›Р°Р±РѕСЂР°С‚РѕСЂРЅР°СЏ СЂР°Р±РѕС‚Р° в„–1
 #include <stdio.h> 
 #include <locale.h>
 
 int main(void)
 {
 	setlocale(LC_ALL, "Russian");
-	//system("chcp 1251");
+	system("chcp 1251");
 	int a, b;
-	printf("йцу:");
+	printf("Р№С†Сѓ:");
 	scanf_s("%i", &a);
-	printf("йцу");
+	printf("Р№С†Сѓ");
 	scanf_s("%i", &b);
 
 

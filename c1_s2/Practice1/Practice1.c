@@ -4,9 +4,9 @@
 
 int main(void)
 {
-	setlocale(LC_ALL, "Rus");
+	setlocale(LC_ALL, "");
 	int a, b;
-	printf("Введите количество строк массива:");
+	printf("Введтие количество строк массива:");
 	scanf_s("%i", &a);
 	printf("Введите количество столбцов массива:");
 	scanf_s("%i", &b);

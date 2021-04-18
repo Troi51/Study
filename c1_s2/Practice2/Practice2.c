@@ -12,7 +12,9 @@ double d_a, d_b, d_sigma;
 //С помощью данной функции мы каждый раз сможем находить f(x)
 double f(double d_x, int i_k, int i_l, int i_m, int i_n)
 {
-    return(i_k * pow(d_x, 3) + i_l * pow(d_x, 2) + i_m * d_x + i_n);
+    double r;
+    r = (i_k * pow(d_x, 3) + i_l * pow(d_x, 2) + i_m * d_x + i_n);
+    return(r);
 }
 
 

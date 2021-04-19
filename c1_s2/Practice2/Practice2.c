@@ -22,9 +22,9 @@ double f(double d_x)
 //Вычисляем корень и находим количество итераций
 double find_k()
 {
-    double d_xm;
+    double d_xm = 0.0;
     while (d_p < d_b - d_a) {
-        i_i = i_i++;
+        i_i = i_i++;               //Считаем количество итераций
         d_xm = (d_a + d_b) / 2;
         if (f(d_b) * f(d_xm) < 0)
         {
@@ -34,7 +34,7 @@ double find_k()
         {
             d_b = d_xm;
         }
-    }
+    } 
     return(d_xm);
 }
 
@@ -47,7 +47,9 @@ int main(void)
     scanf_s("%lf", &d_a);
     printf("Введите значение правого края интервала:");
     scanf_s("%lf", &d_b);
-    d_p = 0.1;
+    printf("Введите значение точности нахождения решения уравнения:");
+    scanf_s("%lf", &d_p);
+    d_p = d_p * 2;
     i_k = 1;
     i_l = 1;
     i_m = 1;

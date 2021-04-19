@@ -6,8 +6,10 @@
 #include <locale.h>
 #include <math.h>
  
-int i_k, i_l, i_m, i_n;
-double d_a, d_b, d_sigma;
+int i_k, i_l, i_m, i_n;    //Значения k, l, m, n, которые вводит пользователь с клавиатуры
+int i_i = 0;               //Номер итерации, на которой был найден корень
+double d_a, d_b,           //Левый и правый край интервала
+       d_p;                //Точность нахождения решения уравнения
 
 //С помощью данной функции мы каждый раз сможем находить f(x)
 double f(double d_x)
@@ -17,11 +19,12 @@ double f(double d_x)
     return(r);
 }
 
-
+//Вычисляем корень и находим количество итераций
 double find_k()
 {
     double d_xm;
-    while (d_sigma < d_b - d_a) {
+    while (d_p < d_b - d_a) {
+        i_i = i_i++;
         d_xm = (d_a + d_b) / 2;
         if (f(d_b) * f(d_xm) < 0)
         {
@@ -44,7 +47,7 @@ int main(void)
     scanf_s("%lf", &d_a);
     printf("Введите значение правого края интервала:");
     scanf_s("%lf", &d_b);
-    d_sigma = 0.1;
+    d_p = 0.1;
     i_k = 1;
     i_l = 1;
     i_m = 1;

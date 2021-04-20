@@ -64,9 +64,9 @@ int main(void)
      {
         printf("\n\nВведено квадратное уравнение (%d)*x^2 + (%d)*x + (%d)=0\n", i_a, i_b, i_c);
         double f_x1, f_x2;
-        int i_disc;
+        long int i_disc;
         i_disc = pow(i_b,2) - (4 * i_a * i_c);
-        if (i_disc > -1)
+        if (i_disc > 0)
         {
             f_x1 = (-1 * i_b - (sqrt(i_disc)))/(2 * i_a);
             f_x2 = (-1 * i_b + (sqrt(i_disc)))/(2 * i_a);
@@ -102,10 +102,42 @@ int main(void)
         break;
      }
     
+     //a, b, c <> 0
     case 9:
-        printf("Стандарное квадратное уравнение");
+     {
+        printf("\n\nВведено квадратное уравнение (%d)*x^2 + (%d)*x + (%d)=0\n", i_a, i_b, i_c);
+        double f_x1, f_x2;
+        int i_disc;
+        i_disc = pow(i_b, 2) - (4 * i_a * i_c);
+        if (i_disc > 0)
+        {
+            f_x1 = (-1 * i_b - (sqrt(i_disc))) / (2 * i_a);
+            f_x2 = (-1 * i_b + (sqrt(i_disc))) / (2 * i_a);
+            printf("Корни квадратного уравнения: %f, %f\n", f_x1, f_x2);
+            printf("Подставим один из корней уравнения в исходное уравнение\n");
+            printf("(%d)*(%2.2f)^2 + (%d)*(%2.2f) + (%d)=0 |->\n", i_a, f_x1, i_b, f_x1, i_c);
+            printf("(%d)*(%2.2f) + (%2.2f) + (%d)=0 |->\n", i_a, pow(f_x1, 2), i_b * f_x1, i_c);
+            printf("%1.0f=0\n", pow(f_x1, 2) * i_a + i_b * f_x1 + i_c);
+        }
+        else
+        {
+            if (i_disc == 0)
+            {
+                f_x1 = (-1 * i_b) / (2 * i_a);
+                printf("Корень квадратного уравнения: %f\n", f_x1);
+                printf("Подставим корень уравнения в исходное уравнение\n");
+                printf("(%d)*(%2.2f)^2 + (%d)*(%2.2f) + (%d)=0 |->\n", i_a, f_x1, i_b, f_x1, i_c);
+                printf("(%d)*(%2.2f) + (%2.2f) + (%d)=0 |->\n", i_a, pow(f_x1, 2), i_b * f_x1, i_c);
+                printf("%1.0f=0\n", pow(f_x1, 2) * i_a + i_b * f_x1 + i_c);
+            }
+            else
+            {
+                printf("Данное уравнение не имеет корней, поскольку дискриминант меньше 0\n");
+            }
+            
+        }
         break;
-    
+     }
     
     default:
         printf("Уравнение не соответствует условию задачи");

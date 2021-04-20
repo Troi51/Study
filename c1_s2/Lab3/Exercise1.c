@@ -9,17 +9,20 @@
 int i_a, i_b, i_c;
 char c_check[6];
 
-int check_value(int i_x, char c_x, int i_a, int i_b)
+//Проверяем переменную на значение нуля. Если равно - заносим её название в массив строки, 
+//что бы потом сообщить об этом пользователю. Почему функция? Что бы уменьшить количество 
+//повторяющегося кода и облегчить чтение кода
+int check_value(int i_v, char c_x, int i_x, int i_y)
 {
-    if (i_x == 0)
+    if (i_v == 0)
     {
-        c_check[i_a] = c_x;
-        c_check[i_b] = ' ';
+        c_check[i_x] = c_x;
+        c_check[i_y] = ' ';
     }
     else
     {
-        c_check[i_a] = ' ';
-        c_check[i_b] = ' ';
+        c_check[i_x] = ' ';
+        c_check[i_y] = ' ';
     }
 }
 
@@ -31,46 +34,19 @@ int main(void)
     
     printf("Введите значение коэффицента а:");
     scanf_s("%ld", &i_a);
-    if (i_a == 0)
-    {
-        c_check[0] = 'a';
-        c_check[1] = ' ';
-    }
-    else
-    {
-        c_check[0] = ' ';
-        c_check[1] = ' ';
-    }
+    check_value(i_a, 'a', 0, 1);
     printf("Введите значение коэффицента b:");
     scanf_s("%ld", &i_b);
-    if (i_b == 0)
-    {
-        c_check[2] = 'b';
-        c_check[3] = ' ';
-    }
-    else
-    {
-        c_check[2] = ' ';
-        c_check[3] = ' ';
-    }
+    check_value(i_b, 'b', 2, 3);
     printf("Введите значение коэффицента c:");
     scanf_s("%ld", &i_c);
-    if (i_c == 0)
-    {
-        c_check[4] = 'c';
-        c_check[5] = ' ';
-    }
-    else
-    {
-        c_check[4] = ' ';
-        c_check[5] = ' ';
-    }
+    check_value(i_c, 'c', 4, 5);
+
     if ((i_a == 0) | (i_b == 0) | (i_c == 0))
     {
         system("cls");
         printf("Данные значения равны нулю: %s\nПроверьте правильность данных и повторите ввод.", c_check);
     }
     
-
     return(0);
 }

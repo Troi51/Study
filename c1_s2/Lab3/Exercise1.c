@@ -31,7 +31,6 @@ int main(void)
     {
         i_check = i_check + 5;
     }
-    //printf("%d:", i_check);
 
     switch(i_check)
     {
@@ -65,7 +64,7 @@ int main(void)
         printf("\n\nВведено квадратное уравнение (%d)*x^2 + (%d)*x + (%d)=0\n", i_a, i_b, i_c);
         double f_x1, f_x2;
         int i_disc;
-        i_disc = pow(i_b,2) -(4 * i_a * i_c);
+        i_disc = pow(i_b,2) - (4 * i_a * i_c);
         if (i_disc > -1)
         {
             f_x1 = (-1 * i_b + (sqrt(i_disc)))/(2 * i_a);
@@ -73,8 +72,8 @@ int main(void)
             printf("Корни квадратного уравнения: %f, %f\n", f_x1, f_x2);
             printf("Подставим один из корней уравнения в исходное уравнение\n");
             printf("(%d)*(%2.2f)^2 + (%d)*(%2.2f) + (%d)=0 |->\n", i_a, f_x1, i_b, f_x1, i_c);
-            printf("(%d)*(%2.2f) + (%d)=0 |->\n", i_a, round(pow(f_x1, 2)), i_c);
-            printf("%1.0f=0\n", round(pow(f_x1, 2))+i_c);
+            printf("(%d)*(%2.1f) + (%d)=0 |->\n", i_a, pow(f_x1, 2), i_c);
+            printf("%1.0f=0\n", pow(f_x1, 2) * i_a +i_c);
         }
         else
         {

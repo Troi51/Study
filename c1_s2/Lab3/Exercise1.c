@@ -26,27 +26,26 @@ int check_value(int i_v, char c_x, int i_x, int i_y)
     }
 }
 
-
 int main(void)
 {   
     //Сообщаем компилятору, что хотим видеть в командной строке русские буквы вместо "крокозябр" 
     setlocale(LC_ALL, "Rus");
-    
-    printf("Введите значение коэффицента а:");
-    scanf_s("%ld", &i_a);
-    check_value(i_a, 'a', 0, 1);
-    printf("Введите значение коэффицента b:");
-    scanf_s("%ld", &i_b);
-    check_value(i_b, 'b', 2, 3);
-    printf("Введите значение коэффицента c:");
-    scanf_s("%ld", &i_c);
-    check_value(i_c, 'c', 4, 5);
+    do {
+        printf("Введите значение коэффицента а:");
+        scanf_s("%ld", &i_a);
+        check_value(i_a, 'a', 0, 1);
+        printf("Введите значение коэффицента b:");
+        scanf_s("%ld", &i_b);
+        check_value(i_b, 'b', 2, 3);
+        printf("Введите значение коэффицента c:");
+        scanf_s("%ld", &i_c);
+        check_value(i_c, 'c', 4, 5);
 
-    if ((i_a == 0) | (i_b == 0) | (i_c == 0))
-    {
-        system("cls");
-        printf("Данные значения равны нулю: %s\nПроверьте правильность данных и повторите ввод.", c_check);
-    }
-    
+        if ((i_a == 0) | (i_b == 0) | (i_c == 0))
+        {
+            system("cls");
+            printf("Значения данных коэффицентов равны нулю: %s\nПроверьте правильность данных и повторите ввод.\n\n", c_check);
+        }
+    } while ((i_a == 0) | (i_b == 0) | (i_c == 0));
     return(0);
 }

@@ -6,7 +6,8 @@
 #include <locale.h>
 #include <math.h>
 
-long int i_a, i_b, i_c, i_check = 0;
+long int i_a, i_b, i_c, //Переменные для хранения коэффицентов, введённых пользователем
+         i_check = 0;   //Переменная, предназначенная для определения типа уравнения
 
 int main(void)
 {   
@@ -67,12 +68,12 @@ int main(void)
         i_disc = pow(i_b,2) - (4 * i_a * i_c);
         if (i_disc > -1)
         {
-            f_x1 = (-1 * i_b + (sqrt(i_disc)))/(2 * i_a);
-            f_x2 = (-1 * i_b - (sqrt(i_disc)))/(2 * i_a);
+            f_x1 = (-1 * i_b - (sqrt(i_disc)))/(2 * i_a);
+            f_x2 = (-1 * i_b + (sqrt(i_disc)))/(2 * i_a);
             printf("Корни квадратного уравнения: %f, %f\n", f_x1, f_x2);
             printf("Подставим один из корней уравнения в исходное уравнение\n");
             printf("(%d)*(%2.2f)^2 + (%d)*(%2.2f) + (%d)=0 |->\n", i_a, f_x1, i_b, f_x1, i_c);
-            printf("(%d)*(%2.1f) + (%d)=0 |->\n", i_a, pow(f_x1, 2), i_c);
+            printf("(%d)*(%2.2f) + (%d)=0 |->\n", i_a, pow(f_x1, 2), i_c);
             printf("%1.0f=0\n", pow(f_x1, 2) * i_a +i_c);
         }
         else
@@ -82,13 +83,30 @@ int main(void)
         break;
      }
 
-     //
+     //a, b <>0, c = 0 
     case 4:
-        printf("Квадратное уравнение без с");
+     {
+        printf("\n\nВведено квадратное уравнение (%d)*x^2 + (%d)*x + (%d)=0\n", i_a, i_b, i_c);
+        double f_x1, f_x2;
+        int i_disc;
+        i_disc = pow(i_b, 2) - (4 * i_a * i_c);
+        //Без проверки дискриминанта, т.к. с тут равно 0 и проверять смысла нет
+        f_x1 = (-1 * i_b - (sqrt(i_disc))) / (2 * i_a);
+        f_x2 = (-1 * i_b + (sqrt(i_disc))) / (2 * i_a);
+        printf("Корни квадратного уравнения: %f, %f\n", f_x1, f_x2);
+        printf("Подставим один из корней уравнения в исходное уравнение\n");
+        printf("(%d)*(%2.2f)^2 + (%d)*(%2.2f)=0 |->\n", i_a, f_x1, i_b, f_x1);
+        printf("(%d)*(%2.2f) + (%2.2f)=0 |->\n", i_a, pow(f_x1, 2), i_b * f_x1);
+        printf("%1.0f=0\n", pow(f_x1, 2) * i_a + i_b* f_x1);
+      
         break;
+     }
+    
     case 9:
-        printf("Стандарное квадртаное уравнение");
+        printf("Стандарное квадратное уравнение");
         break;
+    
+    
     default:
         printf("Уравнение не соответствует условию задачи");
         break;

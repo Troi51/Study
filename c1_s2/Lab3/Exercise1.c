@@ -6,7 +6,7 @@
 #include <locale.h>
 #include <math.h>
 
-int i_a, i_b, i_c, i_check = 0;
+long int i_a, i_b, i_c, i_check = 0;
 
 int main(void)
 {   
@@ -38,20 +38,43 @@ int main(void)
 
     //a, b, c = 0
     case 0:
-        printf("Введено пустое уравнение (%d)*x^2+(%d)*x+(%d)=0, т.к. коэффицент равны нулю!",i_a, i_b, i_c);
+     {
+        printf("\n\nВведено пустое уравнение (%d)*x^2+(%d)*x+(%d)=0, т.к. коэффицент равны нулю!", i_a, i_b, i_c);
         break;
+     }
 
     //a, b = 0  c <> 0
     case 5:
-        printf("Введено линейное уравнение (%d)*x^2+(%d)*x+(%d). Уравнение не имеет корней!", i_a, i_b, i_c);
+     {
+        printf("\n\nВведено линейное уравнение (%d)*x^2+(%d)*x+(%d)=0. Уравнение не имеет корней!", i_a, i_b, i_c);
         break;
-
-    //
+     }
+    //a<>0 b,c = 0
     case 1:
-        printf("Квадратное уравнение ");
+     {
+        printf("\n\nВведено квадратное уравнение (%d)*x^2+(%d)*x+(%d)=0\n", i_a, i_b, i_c);
+        printf("Результат умножения: %d*x^2=0\n", i_a);
+        printf("Корень уравнения равен: 0\n");
         break;
+     }
+    // a<>0, b = 0, c <> 0
     case 6:
-        printf("Квадратное уравнениес со смещением");
+     {
+        printf("\n\nВведено квадратное уравнение (%d)*x^2+(%d)*x+(%d)=0\n", i_a, i_b, i_c);
+        double f_x1, f_x2;
+        int i_disc;
+        i_disc = -1 * (4 * i_a * i_c);
+        if (i_disc > -1)
+        {
+            f_x1 = -1 * (sqrt(i_disc)/2*i_a);
+            f_x2 = sqrt(i_disc) / 2 * i_a;
+            printf("Корни квадратного уравнения: %f, %f\n", f_x1, f_x2);
+        }
+        else
+        {
+
+        }
+     }
         break;
     case 4:
         printf("Квадратное уравнение без с");
